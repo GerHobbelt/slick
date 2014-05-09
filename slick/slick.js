@@ -451,7 +451,7 @@
 
             for (breakpoint in _.breakpoints) {
                 if (_.breakpoints.hasOwnProperty(breakpoint)) {
-                    if ($(window).width() < _.breakpoints[
+                    if ($(window).outerwidth() < _.breakpoints[
                         breakpoint]) {
                         targetBreakpoint = _.breakpoints[
                             breakpoint];
@@ -766,10 +766,10 @@
         });
 
         $(window).on('resize.slick.slick-' + _.instanceUid, function() {
-            if ($(window).width !== _.windowWidth) {
+            if ($(window).outerWidth() !== _.windowWidth) {
                 clearTimeout(_.windowDelay);
                 _.windowDelay = window.setTimeout(function() {
-                    _.windowWidth = $(window).width();
+                    _.windowWidth = $(window).outerWidth();
                     _.checkResponsive();
                     _.setPosition();
                 }, 50);
@@ -1032,14 +1032,14 @@
         var _ = this;
 
         if (_.options.centerMode === true) {
-            _.$slideTrack.children('.slick-slide').width(_.slideWidth);
+            _.$slideTrack.children('.slick-slide').outerWidth(_.slideWidth);
         } else {
-            _.$slideTrack.children('.slick-slide').width(_.slideWidth);
+            _.$slideTrack.children('.slick-slide').outerWidth(_.slideWidth);
         }
 
 
         if (_.options.vertical === false) {
-            _.$slideTrack.width(Math.ceil((_.slideWidth * _
+            _.$slideTrack.outerWidth(Math.ceil((_.slideWidth * _
                 .$slideTrack.children('.slick-slide').length)));
             if (_.options.centerMode === true) {
                 _.$list.css({
@@ -1047,8 +1047,8 @@
                 });
             }
         } else {
-            _.$list.height(_.$slides.first().outerHeight() * _.options.slidesToShow);
-            _.$slideTrack.height(Math.ceil((_.$slides.first().outerHeight() * _
+            _.$list.outerHeight(_.$slides.first().outerHeight() * _.options.slidesToShow);
+            _.$slideTrack.outerHeight(Math.ceil((_.$slides.first().outerHeight() * _
                 .$slideTrack.children('.slick-slide').length)));
             if (_.options.centerMode === true) {
                 _.$list.css({
@@ -1141,8 +1141,8 @@
 
         var _ = this;
 
-        _.listWidth = _.$list.width();
-        _.listHeight = _.$list.height();
+        _.listWidth = _.$list.outerWidth();
+        _.listHeight = _.$list.outerHeight();
         if(_.options.vertical === false) {
         _.slideWidth = Math.ceil(_.listWidth / _.options
             .slidesToShow);
@@ -1462,7 +1462,7 @@
             _.swipeLeft = curLeft + _.touchObject.swipeLength * positionOffset;
         } else {
             _.swipeLeft = curLeft + (_.touchObject
-                .swipeLength * (_.$list.height() / _.listWidth)) * positionOffset;
+                .swipeLength * (_.$list.outerHeight() / _.listWidth)) * positionOffset;
         }
 
         if (_.options.fade === true || _.options.touchMove === false) {
