@@ -98,7 +98,7 @@ $(element).unslick();
 
 #### Dependencies
 
-jQuery 1.7
+jQuery 1.8
 
 #### License
 
