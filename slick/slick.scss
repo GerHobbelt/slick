@@ -130,7 +130,7 @@ $slick-dot-character: '\2022' !default;
 }
 
 /* Icons */
-
+/*
 @font-face {
     font-family:"slick";
     src:    slick-font-url("slick.eot");
@@ -141,6 +141,7 @@ $slick-dot-character: '\2022' !default;
     font-weight: normal;
     font-style: normal;
 }
+*/
 
 /* Arrows */
 
@@ -168,7 +169,7 @@ $slick-dot-character: '\2022' !default;
     }
 }
 .slick-prev:before, .slick-next:before {
-    font-family:"slick";
+    /* font-family:"slick"; */
     font-size: 20px;
     line-height: 1;
     color: $slick-arrow-color;
@@ -235,7 +236,7 @@ $slick-dot-character: '\2022' !default;
                 content: $slick-dot-character;
                 width: 20px;
                 height: 20px;
-                font-family:"slick";
+                /* font-family:"slick"; */
                 font-size: 6px;
                 line-height: 20px;
                 text-align: center;
